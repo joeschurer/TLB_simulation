@@ -10,10 +10,6 @@ using namespace std;
 int main(void){
     //initialize a tlb
     TLB cache;
-
-    //Variables used in calculating hitrate
-    int hits,mises;
-    float hit_rate;
     
     vector<TLB_entry> data;
     TLB_entry new_item;
@@ -43,17 +39,23 @@ int main(void){
 		}
 	}
 	
-	/*new_item.tag = 1;
+	new_item.tag = 1;
 	
-    for(int i=0; i < 64; i++){
-		cache.add_item(new_item);
+    for(int i=0; i < data.size(); i++){
+		cache.add_item(data[i]);
     }
 	
-	cache.add_item(new_item);
-	bool test = cache.access(1);
-		
-	cout << "Found: " << test << "\n";
-	*/
+	//Variables used in calculating hitrate
+    float hit_rate;
+    int hits = cache.get_hits();
+    int misses = cache.get_misses();
+	
+	
+	//Report some stats
+	cout << "Number of hits: " << hits << endl;
+	cout << "Number of misses: " << misses << endl;
+	hit_rate = (float)hits/misses;
+	cout << "Hit rate: " << hit_rate << endl;
 
     return 0;
 }
