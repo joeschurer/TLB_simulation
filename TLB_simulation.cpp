@@ -18,7 +18,7 @@ int main(void){
     TLB_entry new_item;
 	
 	//code to read in items from the file
-	ifstream input_file("cc1.din");
+	ifstream input_file("cc2.din");
 	if(input_file.is_open()){
 		
 		string line; //contains the indiv. line
@@ -33,6 +33,11 @@ int main(void){
 			end = line.find_last_not_of(" \n\t");
 			addr = line.substr(start,end+1);
 			
+			//test for 0X or 0x prefix
+			if(addr.find("0x") != string::npos || addr.find("0X") != string::npos){
+				addr = addr.substr(2,end+1);
+			}
+			
 			//convert full addr to upper 22 bits
 			addr = gen_tag(addr);
 			
@@ -42,7 +47,7 @@ int main(void){
 			data.push_back(new_item);
 			
 			//use for debug only
-			cout << type << "-" << addr << endl;
+			//cout << type << "-" << addr << endl;
 		}
 	}
 	
