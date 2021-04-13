@@ -18,7 +18,7 @@ int main(void){
     TLB_entry new_item;
 	
 	//code to read in items from the file
-	ifstream input_file("cc2.din");
+	ifstream input_file("cc1.din");
 	if(input_file.is_open()){
 		
 		string line; //contains the indiv. line
