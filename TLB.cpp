@@ -54,8 +54,8 @@ void TLB::add_item(TLB_entry new_item){
         if(data[i].tag == new_item.tag){
 			data[i].num_accesses++;
 			
-			std::cout << "Hit on already included tag: " << new_item.tag << " - " << data[i].num_accesses << std::endl;
-			std::cout << data[i].access_type << " - " << new_item.access_type <<std::endl;
+			//std::cout << "Hit on already included tag: " << new_item.tag << " - " << data[i].num_accesses << std::endl;
+			//std::cout << data[i].access_type << " - " << new_item.access_type <<std::endl;
 			hits++;
             return;
         }
