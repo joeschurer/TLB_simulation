@@ -30,8 +30,9 @@ int main(void){
 			type = line[0];
 			line = line.substr(1,line.size());
 			start = line.find_first_not_of(" \n\t");
-			end = line.find_last_not_of(" \n\t");
-			addr = line.substr(start,end+1);
+			line = line.substr(start,line.size());			
+			end = line.find_first_of(" \n\t");
+			addr = line.substr(0,end);
 			
 			//test for 0X or 0x prefix
 			if(addr.find("0x") != string::npos || addr.find("0X") != string::npos){
@@ -47,7 +48,7 @@ int main(void){
 			data.push_back(new_item);
 			
 			//use for debug only
-			//cout << type << "-" << addr << endl;
+			cout << type << "-" << addr << endl;
 		}
 	}
 	
