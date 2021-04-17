@@ -12,7 +12,7 @@
 
 using namespace std;
 
-//Function to strip off the lower 10 bits of the addr
+//Function to strip off the lower 12 bits of the address
 string gen_tag(string input);
 
 int main(void){
@@ -77,10 +77,10 @@ int main(void){
     return 0;
 }
 
-//function to strip off the last ten bits
+//function to strip off the last 12 bits
 string gen_tag(string input){
 	int addr = (int)strtol(input.c_str(), NULL, 16);
-	addr = (addr >> 10);
+	addr = (addr >> 12);
 	std::stringstream convert;
 	convert << std::hex << addr;
 	return convert.str();

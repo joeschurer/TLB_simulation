@@ -51,7 +51,6 @@ void TLB::add_item(TLB_entry new_item){
         data.push_back(new_item);
     } else {
         //do a replacement
-        //TLB_entry temp = this->replace(new_item);
         this->replace(new_item);
     }
     misses++;
