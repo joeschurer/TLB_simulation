@@ -21,7 +21,6 @@ public:
     ~TLB(); //desctructor
     void add_item(TLB_entry new_item); //add an item into the TLB
     void replace(TLB_entry new_item); //replace an entry
-    //bool access(std::string tag); //check if tag is in the TLB
 	int get_hits();
 	int get_misses();
 	

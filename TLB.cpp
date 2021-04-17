@@ -25,19 +25,6 @@ void TLB::replace(TLB_entry new_item){
    
 }
 
-/*/function to search the TLB for a desired tag
-bool TLB::access(std::string tag){
-    //step thru the data and check for a match in each item
-    for(int i=0; i < data.size(); i++){
-        //if the data matches return true and increment the number of accesses
-        if(data[i].tag == tag){
-			data[i].num_accesses++;
-            return true;
-        }
-    }
-    return false;
-}*/
-
 //function to access an item by its index
 TLB_entry TLB::get_item(int pos){
     return data[pos];
