@@ -6,8 +6,13 @@
 #include <fstream>
 #include <sstream>
 
+/* Compile with:
+ * g++ TLB_simulation.cpp TLB.hpp TLB.cpp
+ */
+
 using namespace std;
 
+//Function to strip off the lower 10 bits of the addr
 string gen_tag(string input);
 
 int main(void){
@@ -42,18 +47,17 @@ int main(void){
 			//convert full addr to upper 22 bits
 			addr = gen_tag(addr);
 			
-			
+			//Construct the TLB_entry
 			new_item.access_type = type;
-			new_item.tag = addr;//note should eventually remove offset prob
+			new_item.tag = addr;
 			data.push_back(new_item);
 			
 			//use for debug only
-			cout << type << "-" << addr << endl;
+			//cout << type << "-" << addr << endl;
 		}
 	}
 	
-	new_item.tag = 1;
-	
+	//This loop is where the TLB is used
     for(int i=0; i < data.size(); i++){
 		cache.add_item(data[i]);
     }

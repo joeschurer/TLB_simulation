@@ -2,7 +2,7 @@
 #define TLBENTRY_H
 #include <string>
 
-//data types here could be optimized
+//Struct to represent an entry
 struct TLB_entry{
     std::string tag;
     char access_type;
